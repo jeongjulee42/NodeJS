@@ -1,8 +1,10 @@
 import express from "express";
 
 const app = express();
-app.get("/", (req, res, next) => {
-  res.send("hi");
+app.get("/sky/:idd", (req, res, next) => {
+  console.log(req.params);
+  console.log(req.query);
+  res.send(req.query.key);
 });
 
 app.listen(8080);
