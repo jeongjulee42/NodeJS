@@ -2,9 +2,11 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
+import helmet from "helmet";
 
 const app = express();
 
+app.use(helmet());
 app.use(cookieParser());
 app.use(morgan("combined"));
 app.use(
