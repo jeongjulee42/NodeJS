@@ -1,10 +1,12 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import morgan from "morgan";
 
 const app = express();
 
 app.use(cookieParser());
+app.use(morgan("combined"));
 app.use(
   cors({
     origin: ["http://127.0.0.1:5500"],
