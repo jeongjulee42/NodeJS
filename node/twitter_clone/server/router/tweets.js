@@ -3,6 +3,25 @@ import "express-async-errors";
 
 const router = express.Router();
 
+let tweets = [
+  {
+    id: "1",
+    text: "Dream Coder",
+    createdAt: Date.now().toString(),
+    name: "Bob",
+    username: "bob",
+    url: "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-1.png",
+  },
+  {
+    id: "2",
+    text: "coding hardwork",
+    createdAt: Date.now().toString(),
+    name: "Steve",
+    username: "steve",
+    url: "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-3.png",
+  },
+];
+
 router.get("/", (req, res, next) => {
   const username = req.query.username;
   const data = username
