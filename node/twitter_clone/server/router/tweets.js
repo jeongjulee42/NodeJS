@@ -41,7 +41,7 @@ router.put("/:id", (req, res, next) => {
 
 router.delete("/:id", (req, res, next) => {
   const id = req.params.id;
-  tweetRepository.delete(id);
+  tweetRepository.remove(id);
   res.sendStatus(204);
 });
 
