@@ -1,3 +1,3 @@
-const counter = require('./counter.js');
-counter.incr();
-console.log(counter.getC());
+const os = require('os');
+console.log(os.cpus());
+console.log(os.homedir())
