@@ -1,10 +1,3 @@
-const path = require('path')
-console.log(__dirname)
-console.log(__filename)
+const fs = require('fs');
 
-console.log(path.basename(__filename));
-console.log(path.basename(__filename, '.js'));
-console.log(path.dirname(__filename))
-
-const parsed = path.parse(__filename)
-console.log(parsed)
+fs.promises.rename('./file_new.txt', './test.txt').then(console.log("change complete")).catch(console.log)
