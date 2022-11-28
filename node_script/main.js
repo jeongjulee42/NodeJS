@@ -1,15 +1,12 @@
 console.clear();
 console.log('--------------');
-// 1. 폴더에 접근
-// 2. 폴더에서 파일들 목록 읽기
-// 3. 먼저 비디오 폴더 생성하고, 동영상 파일들 옮기기
-// 4. captured 폴더 생성하고, png, aae 파일들 옮기기
-// 5. duplicated 폴더 생성하고 원본 옮기기
+
 const path = require('path');
 const fs = require('fs');
 
 const photoDir = process.argv[2];
 const workingDir = path.join(__dirname, photoDir);
+
 
 const videoDir = path.join(workingDir, 'video');
 const capturedDir = path.join(workingDir, 'captured');
