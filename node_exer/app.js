@@ -1,10 +1,8 @@
 const fs = require('fs');
 
-const writeStream = fs.createWriteStream('./file3.txt');
-writeStream.on('finish', () => {
-    console.log('Finish!');
+const readStream = fs.createReadStream('./file.txt');
+const writeStream = fs.createWriteStream('./file4.txt');
+const piping = readStream.pipe(writeStream);
+piping.on('finish', () => {
+    console.log('Done!!!');
 })
-
-writeStream.write('Hello!');
-writeStream.write('World!');
-writeStream.end();
