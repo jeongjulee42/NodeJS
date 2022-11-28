@@ -1,8 +1,7 @@
-const fs = require('fs');
+const { emit } = require('nodemon');
+const logger = require('./main.js');
+const emitter = new logger.Logger();
 
-const readStream = fs.createReadStream('./file.txt');
-const writeStream = fs.createWriteStream('./file4.txt');
-const piping = readStream.pipe(writeStream);
-piping.on('finish', () => {
-    console.log('Done!!!');
+emitter.log(() => {
+    console.log('Doing something');
 })
