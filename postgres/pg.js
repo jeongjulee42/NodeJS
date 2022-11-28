@@ -8,3 +8,4 @@ knex.schema.createTable('book', function (table){
 }).finally(function () {
     console.log("Done");
 })
+
