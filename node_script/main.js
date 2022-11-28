@@ -26,17 +26,19 @@ fs.promises.readdir(workingDir).then((files) => {
 }).catch(console.error);
 
 function classification(filename){
+    if (filename.includes('IMG_E')){
+        moveFile(filename, duplicatedDir);
+    }
     const extension = path.extname(filename);
     if (extension.includes('png')||extension.includes('aae')) {
-        moveFile(filename, capturedDir)
+        moveFile(filename, capturedDir);
     } else if (extension.includes('mov') || extension.includes('mp4')) {
-        moveFile(filename, videoDir)
+        moveFile(filename, videoDir);
     } else {
         return;
     }
 }
 
 function moveFile(filename, moveDir){
-    console.log(moveDir);
     fs.promises.rename(path.join(workingDir, filename), path.join(moveDir, filename));
 }

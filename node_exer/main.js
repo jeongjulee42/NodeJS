@@ -1,13 +1,3 @@
-const EventEmitter = require('events');
+const fs = require('fs');
 
-class Logger extends EventEmitter {
-    log(callback) {
-        this.emit('log', 'started ...');
-        callback();
-        this.emit('log', 'finished ...');
-    }
-}
-
-
-
-module.exports.Logger = Logger;
+fs.promises.mkdir('sub');
