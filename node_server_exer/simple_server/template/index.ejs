@@ -8,5 +8,11 @@
 </head>
 <body>
     <h1>This is Simple Server!</h1>
+    <h1>Welcome! <%= name %></h1>
+    <ul>
+        <% courses.forEach(course => { %>
+            <li><%= course.name %></li>
+        <% }) %>
+    </ul>
 </body>
 </html>
