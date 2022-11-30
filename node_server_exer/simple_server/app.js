@@ -12,7 +12,9 @@ const server = http.createServer((req, res) => {
         }
         else if (method === 'POST'){
             const body = [];
-            
+            req.on('end', () => {
+                const course = JSON.parse(Buffer.concat(body).)
+            })
         }
     }
 })
