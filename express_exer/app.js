@@ -1,4 +1,5 @@
 import express from 'express';
+import {} from 'express-async-errors';
 
 console.clear();
 console.log('----------------------');
