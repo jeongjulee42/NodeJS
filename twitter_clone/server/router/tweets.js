@@ -9,7 +9,7 @@ router.get('/', tweetController.getTweets);
 
 router.get('/:id', tweetController.getTweet);
 
-router.post('/'. tweetController.createTweet);
+router.post('/', tweetController.createTweet);
 
 router.put('/:id', tweetController.updateTweet);
 
