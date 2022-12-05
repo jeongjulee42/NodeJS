@@ -1,8 +1,8 @@
 import express from 'express';
-import {} from 'express-async-errors';
+import 'express-async-errors';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import {} from 'cors';
+import cors from 'cors';
 import tweetsRouter from './router/tweets.js';
 
 const app = express();

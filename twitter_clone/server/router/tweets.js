@@ -1,7 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
 
-const tweets = [
+let tweets = [
     {
         id:'1',
         text:'This is my first tweet!',
@@ -14,21 +14,23 @@ const tweets = [
         id:'2',
         text:'This is my second tweet!',
         createdAt:Date.now().toString(),
-        name: 'Elloe',
-        username:'eli',
+        name: 'Ellie',
+        username:'ellie',
         url:'',
     },
-]
+];
 
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
     const username = req.query.username;
-    const data = username ? tweets.filter((tweet) => tweet.username === username) : tweets;
+    const data = username 
+        ? tweets.filter((tweet) => tweet.username === username) 
+        : tweets;
     res.status(200).json(data);
 });
 
-router.get('/', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
     const id = req.params.id;
     const tweet = tweets.find((tweet) => tweet.id === id);
     if (tweet) {
