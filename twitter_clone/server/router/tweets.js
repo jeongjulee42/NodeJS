@@ -1,16 +1,10 @@
 import express from 'express';
 import 'express-async-errors';
-import { validationResult } from 'express-validator';
+import { body } from 'express-validator';
 import * as tweetController from '../controller/tweet.js';
+import { validate } from '../middleware/validator.js';
 
-const validate = (req, res, next) => {
-    const errors = validationResult(req);
-    if (errors.isEmpty()){
-        return next();
-    }
-    return res.status(400).json({message: errors.array()[0].msg})
-}
-
+const validateTweet = [body('text').trim().isLength({min: 3}).withMessage('text should be at least 3 characters'), validate];
 
 const router = express.Router();
 
@@ -18,9 +12,9 @@ router.get('/', tweetController.getTweets);
 
 router.get('/:id', tweetController.getTweet);
 
-router.post('/', [body('text').trim().isLength({min: 3}).withMessage('text should be at least 3 characters'),], tweetController.createTweet);
+router.post('/', validateTweet, tweetController.createTweet);
 
-router.put('/:id', tweetController.updateTweet);
+router.put('/:id', validateTweet, tweetController.updateTweet);
 
 router.delete('/:id', tweetController.deleteTweet);
 
