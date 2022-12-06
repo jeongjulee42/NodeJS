@@ -1,8 +1,8 @@
 import express from 'express';
 import 'express-async-errors';
-import helmet from 'helmet';
-import morgan from 'morgan';
 import cors from 'cors';
+import morgan from 'morgan';
+import helmet from 'helmet';
 import tweetsRouter from './router/tweets.js';
 import authRouter from './router/auth.js';
 
@@ -17,13 +17,11 @@ app.use('/tweets', tweetsRouter);
 app.use('/auth', authRouter);
 
 app.use((req, res, next) => {
-    res.sendStatus(404);
+  res.sendStatus(404);
 });
 
 app.use((error, req, res, next) => {
-    console.error(error);
-    res.sendStatus(500);
-})
-
-
+  console.error(error);
+  res.sendStatus(500);
+});
 app.listen(8080);
