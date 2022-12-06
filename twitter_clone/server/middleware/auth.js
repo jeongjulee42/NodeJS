@@ -5,7 +5,7 @@ const AUTH_ERROR = {message: 'Authentication Error'};
 
 export const isAuth = async (req, res, next) => {
     const authHeader = req.get('Authorization');
-    if (!(authHeader && authHeader.startsWith('Bearer'))){
+    if (!(authHeader && authHeader.startsWith('Bearer '))){
         return res.status(401).json(AUTH_ERROR);
     }
 
@@ -23,7 +23,7 @@ export const isAuth = async (req, res, next) => {
                 return res.status(401).json(AUTH_ERROR);
             }
             req.userId = user.id;
-            nexet();
+            next();
         }
     );
 };
