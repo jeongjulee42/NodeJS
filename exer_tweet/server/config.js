@@ -7,6 +7,7 @@ function required(key, defaultValue = undefined){
     if(value == null){
         throw new Error(`key ${key} is undefined`);
     }
+    return value;
 }
 
 export const config = {
@@ -15,6 +16,9 @@ export const config = {
         expiresInSec: required('JWT_EXPIRES_SEC'),
     },
     bcrypt: {
-        saltRounds: required('BCRYPT_SALT_ROUNDS'),
+        saltRounds: parseInt(required('BCRYPT_SALT_ROUNDS')),
+    },
+    host: {
+        port: required('HOST_PORT', 8080),
     }
 }
