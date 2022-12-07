@@ -11,10 +11,10 @@ let users = [
   {
     id: '2',
     username: 'ellie',
-    password: '$2b$12$G9xf8SGq3oTEgdj7ozHQ/uhDOyeQcUEDU8tnOcvpvApuadr3nE5Vm',
+    password: '$2b$12$G9xf8SFq3oTEgdj7ozHQ/uhDOyeQcUEDU8tnOcvpvApuadr3nE5Vm',
     name: 'Ellie',
-    email:'ellie@gmail.com',
-  }
+    email: 'ellie@gmail.com',
+  },
 ];
 
 export async function findByUsername(username) {
