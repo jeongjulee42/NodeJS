@@ -21,9 +21,6 @@ export const config = {
     port: parseInt(required('HOST_PORT', 8080)),
   },
   db: {
-    host: required('DB_HOST', 'localhost'),
-    user: required('DB_USER', 'root'),
-    database: required('DB_DATABASE', 'dwitter'),
-    password: required('DB_PASSWORD'),
-  }
+    host: required('DB_HOST'),
+  },
 };
