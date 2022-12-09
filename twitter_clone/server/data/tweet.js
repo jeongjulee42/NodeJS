@@ -17,7 +17,7 @@ const Tweet = sequelize.define('tweet', {
     allowNull: false,
   },
 });
-tweet.belongsTo(User);
+Tweet.belongsTo(User);
 
 const INCLUDE_USER = {
   attributes: [
