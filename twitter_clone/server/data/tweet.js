@@ -27,7 +27,7 @@ const INCLUDE_USER = {
     'userId',
     [Sequelize.col('user.name'), 'name'],
     [Sequelize.col('user.username'), 'username'],
-    [Sequelize.col('user.url'), 'url',]
+    [Sequelize.col('user.url'), 'url',],
   ],
   include: {
     model: User,
@@ -62,8 +62,7 @@ export async function getById(id) {
 }
 
 export async function create(text, userId) {
-  return Tweet.create({text, userId})
-    .then((data)=>{this.getById(data.dataValues.id)});
+  return Tweet.create({text, userId}).then((data)=>{getById(data.dataValues.id)});
 }
 
 export async function update(id, text) {
