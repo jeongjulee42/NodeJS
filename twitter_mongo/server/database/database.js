@@ -13,3 +13,11 @@ export function getUsers() {
 export function getTweets() {
     return db.collection('tweets');
 }
+
+export function useVirtualId(schema){
+    schema.virtual('id').get(function () {
+        return this._id.toString();
+    })
+    schema.set('toJSON', {virtuals:true});
+    schema.set('toObject', {virtuals: true});
+}
